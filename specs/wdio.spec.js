@@ -92,7 +92,7 @@ describe('Edit profile test:', function () {
   //11. [+]Натиснути на поле статус
   //12. [+]Обрати один з варіантів статусу
   //13. [+]Натиснути на кпопку Редагувати
-  xit('it should be able to edit profile', async function () {
+  it('it should be able to edit profile', async function () {
 
     await browser.setWindowSize(1440, 960);
     await browser.url('/sign-in');
@@ -139,7 +139,7 @@ describe('Edit profile test:', function () {
     const oidls = await $$("div.selectStyles__control");
     const genderOidl = oidls[2];
     await genderOidl.click();
-    const femaleOption = await $("div.selectStyles__single-value=female");
+    const femaleOption = await $("div.selectStyles__option=female");
     await femaleOption.click();
     await browser.pause(2000);
 
@@ -176,13 +176,13 @@ describe('Edit doctors speciality and cliniks:', function () {
 
   // Тест-4 на зміну спеціальності та клініки для доктора.
   //1. [+]Виконати кроки 1-2 з Тесту-3
-  //2. [-]Обрати один з варіантів спеціальності
+  //2. [+]Обрати один з варіантів спеціальності
   //3. [+]Натиснути кнопку зберегти біля вікна спеціальності
   //4. [+]Натиснути на вікно обрати клініку
   //5. [+]Обрати один з варіантів клініки
   //6. [+]Натиснути на кнопку зберегти біля вікна клініка
   //7. [+]Натиснути на кнопку завантажити документ
-  it('it should be able to edit profile', async function () {
+  xit('it should be able to edit profile', async function () {
 
     await browser.setWindowSize(1440, 960);
     await browser.url('/sign-in');
@@ -215,9 +215,9 @@ describe('Edit doctors speciality and cliniks:', function () {
     const oidls = await $$("div.selectStyles__control");
     const specialityOidl = oidls[0];
     await specialityOidl.click();
-    // const specialityOption = await $("div.selectStyles__placeholder=pediatrician");
-    // await specialityOption.click();
-    // await browser.pause(2000);
+    const specialityOption = await $("div.selectStyles__option=pediatrician");
+    await specialityOption.click();
+    await browser.pause(2000);
 
     const button1 = await $$('button[type="submit"]');
     const saveButton = button1[0];
@@ -226,7 +226,7 @@ describe('Edit doctors speciality and cliniks:', function () {
 
     const clinicOidl = oidls[1];
     await clinicOidl.click();
-    const clinicOption = await $("div.selectStyles__single-value=The Johns Hopkins Hospital");
+    const clinicOption = await $("div.selectStyles__option=The Johns Hopkins Hospital");
     await clinicOption.click();
     await browser.pause(2000);
 
@@ -251,7 +251,7 @@ describe('Edit doctors speciality and cliniks:', function () {
   //6. [+]Натиснути на меню статус
   //7. [+]Обрати один із варіантів статусу
   //8. [+]Натиснути на меню місто  
-  //9. [-]Обрати місто
+  //9. [+]Обрати місто
   //10. [+]Натиснути на кпопку Додати
   //11. [+]Перевірити дані
   xit('it should be able to edit profile', async function () {
@@ -306,14 +306,10 @@ describe('Edit doctors speciality and cliniks:', function () {
 
     const cityOidl = oidls[1];
     await cityOidl.click();
-    await browser.pause(5000);
-    const cityOption = await $("div.selectStyles__single-value=New York, NY");
+    await browser.pause(2000);
+    const cityOption = await $("div.selectStyles__option=New York, NY");
     await cityOption.click();
     await browser.pause(2000);
-
-    // const saveButton1 = button1[1];
-    // await saveButton1.click();
-    // await browser.pause(2000);
 
     const addButton1 = await $('button[type="submit"]');
     await addButton1.click();
